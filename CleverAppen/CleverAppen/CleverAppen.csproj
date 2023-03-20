@@ -49,6 +49,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiImage Remove="Resources\Images\account.png" />
+	  <MauiImage Remove="Resources\Images\addpicture.png" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove="Resources\Images\account.png" />
 	  <None Remove="Resources\Images\addpicture.png" />
 	  <None Remove="Resources\Images\camera.png" />
@@ -58,6 +63,11 @@
 	  <None Remove="Resources\Images\logout.png" />
 	  <None Remove="Resources\Images\Settings.png" />
 	  <None Remove="Resources\Images\upload.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\Images\account.png" />
+	  <EmbeddedResource Include="Resources\Images\addpicture.png" />
 	</ItemGroup>
 
 	<ItemGroup>

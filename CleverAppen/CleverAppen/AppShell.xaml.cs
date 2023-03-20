@@ -18,14 +18,13 @@ public partial class AppShell : Shell
         int pageCount = Navigation.NavigationStack.Count;
     }
 
-    private async void AddButton_Clicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(AddInvoicePage));    
-    }
-
-    private async void AccountButton_Clicked(object sender, EventArgs e)
+    private async void AccountImageButtons_Clicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync(nameof(AccountOptionsPage));
     }
 
+    private async void AddPictureImageButton_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(AddInvoicePage));
+    }
 }

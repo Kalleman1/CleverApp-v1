@@ -15,7 +15,10 @@
             </Grid.ColumnDefinitions>
             <ImageButton Source="addpicture.png" 
                      HorizontalOptions="StartAndExpand"
-                     Grid.Column="0"></ImageButton>
+                     Grid.Column="0"
+                         x:Name="AddPictureImageButton"
+                         Clicked="AddPictureImageButton_Clicked"
+                         InputTransparent="False"></ImageButton>
             <Label Text="Company Name" 
                FontAttributes="Bold" 
                HorizontalOptions="CenterAndExpand" 
@@ -23,7 +26,10 @@
                Grid.Column="1"/>
             <ImageButton Source="account.png" 
                      HorizontalOptions="EndAndExpand"
-                     Grid.Column="2"></ImageButton>
+                     Grid.Column="2"
+                         x:Name="AccountImageButtons"
+                         Clicked="AccountImageButtons_Clicked"
+                         InputTransparent="False"></ImageButton>
         </Grid>
     </Shell.TitleView>
     <!--<Shell.ToolbarItems>
@@ -49,7 +55,8 @@
                     </Grid.ColumnDefinitions>
                     <ImageButton Source="addpicture.png" 
                      HorizontalOptions="StartAndExpand"
-                     Grid.Column="0"></ImageButton>
+                     Grid.Column="0"
+                                 Clicked="AddPictureImageButton_Clicked"></ImageButton>
                     <Label Text="Company Name" 
                FontAttributes="Bold" 
                HorizontalOptions="CenterAndExpand" 
@@ -57,14 +64,14 @@
                Grid.Column="1"/>
                     <ImageButton Source="account.png" 
                      HorizontalOptions="EndAndExpand"
-                     Grid.Column="2"></ImageButton>
+                     Grid.Column="2"
+                                 Clicked="AccountImageButtons_Clicked"></ImageButton>
                 </Grid>
             </Shell.TitleView>
         </Tab>
         <Tab Title="Vendors"
              Icon="vendors.png">
             <ShellContent ContentTemplate="{DataTemplate views:VendorsPage}"/>
-
             <Shell.TitleView>
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -74,7 +81,8 @@
                     </Grid.ColumnDefinitions>
                     <ImageButton Source="addpicture.png" 
                      HorizontalOptions="StartAndExpand"
-                     Grid.Column="0"></ImageButton>
+                     Grid.Column="0"
+                                 Clicked="AddPictureImageButton_Clicked"></ImageButton>
                     <Label Text="Company Name" 
                FontAttributes="Bold" 
                HorizontalOptions="CenterAndExpand" 
@@ -82,7 +90,8 @@
                Grid.Column="1"/>
                     <ImageButton Source="account.png" 
                      HorizontalOptions="EndAndExpand"
-                     Grid.Column="2"></ImageButton>
+                     Grid.Column="2"
+                                 Clicked="AccountImageButtons_Clicked"></ImageButton>
                 </Grid>
             </Shell.TitleView>
         </Tab>
@@ -98,7 +107,8 @@
                     </Grid.ColumnDefinitions>
                     <ImageButton Source="addpicture.png" 
                      HorizontalOptions="StartAndExpand"
-                     Grid.Column="0"></ImageButton>
+                     Grid.Column="0"
+                                 Clicked="AddPictureImageButton_Clicked"></ImageButton>
                     <Label Text="Company Name" 
                FontAttributes="Bold" 
                HorizontalOptions="CenterAndExpand" 
@@ -106,7 +116,8 @@
                Grid.Column="1"/>
                     <ImageButton Source="account.png" 
                      HorizontalOptions="EndAndExpand"
-                     Grid.Column="2"></ImageButton>
+                     Grid.Column="2"
+                                 Clicked="AccountImageButtons_Clicked"></ImageButton>
                 </Grid>
             </Shell.TitleView>
         </Tab>
@@ -131,7 +142,8 @@
                     </Grid.ColumnDefinitions>
                     <ImageButton Source="addpicture.png" 
                      HorizontalOptions="StartAndExpand"
-                     Grid.Column="0"></ImageButton>
+                     Grid.Column="0"
+                                 Clicked="AddPictureImageButton_Clicked"></ImageButton>
                     <Label Text="Company Name" 
                FontAttributes="Bold" 
                HorizontalOptions="CenterAndExpand" 
@@ -139,7 +151,8 @@
                Grid.Column="1"/>
                     <ImageButton Source="account.png" 
                      HorizontalOptions="EndAndExpand"
-                     Grid.Column="2"></ImageButton>
+                     Grid.Column="2"
+                                 Clicked="AccountImageButtons_Clicked"></ImageButton>
                 </Grid>
             </Shell.TitleView>
         </Tab>
