@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="CleverAppen.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:CleverAppen.Views;assembly=CleverAppen"
+    Shell.FlyoutBehavior="Disabled"
+    BackgroundColor="#C1D8FF">
+    <Shell.ToolbarItems>
+        <ToolbarItem x:Name="AddButton" 
+                     Text="Add" 
+                     Clicked="AddButton_Clicked"
+                     IconImageSource="addpicture.png"/>
+        <ToolbarItem x:Name="AccountButton" 
+                     Text="Edit" 
+                     Clicked="AccountButton_Clicked"
+                     IconImageSource="account.png"/>
+    </Shell.ToolbarItems>
+    <TabBar>
+        <Tab Title="Invoices"
+             Icon="file_invoice.png">
+            <ShellContent ContentTemplate="{DataTemplate views:InvoicePage}"/>
+        </Tab>
+        <Tab Title="Vendors"
+             Icon="vendors.png">
+            <ShellContent ContentTemplate="{DataTemplate views:VendorsPage}"/>
+        </Tab>
+        <Tab Title="Dashboard"
+             Icon="dashboard.png">
+            <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}"/>
+        </Tab>
+        <Tab Title="Products"
+             Icon="products.png">
+            <ShellContent ContentTemplate="{DataTemplate views:ProductsPage}"/>
+        </Tab>
+        <Tab Title="Sale Items"
+             Icon="sale_items.png">
+            <ShellContent Title="Sale Items" 
+                          ContentTemplate="{DataTemplate views:SaleItemsPage}"/>
+            <ShellContent Title="Groups"  
+                          ContentTemplate="{DataTemplate views:GroupsTab}"/>
+            <ShellContent Title ="Custom Products" 
+                          ContentTemplate="{DataTemplate views:CustomProductsTab}"/>
+        </Tab>
+    </TabBar>
+</Shell>
