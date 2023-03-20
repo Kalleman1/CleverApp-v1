@@ -6,7 +6,27 @@
     xmlns:views="clr-namespace:CleverAppen.Views;assembly=CleverAppen"
     Shell.FlyoutBehavior="Disabled"
     BackgroundColor="#C1D8FF">
-    <Shell.ToolbarItems>
+    <Shell.TitleView>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <ImageButton Source="addpicture.png" 
+                     HorizontalOptions="StartAndExpand"
+                     Grid.Column="0"></ImageButton>
+            <Label Text="Company Name" 
+               FontAttributes="Bold" 
+               HorizontalOptions="CenterAndExpand" 
+               VerticalOptions="Center"
+               Grid.Column="1"/>
+            <ImageButton Source="account.png" 
+                     HorizontalOptions="EndAndExpand"
+                     Grid.Column="2"></ImageButton>
+        </Grid>
+    </Shell.TitleView>
+    <!--<Shell.ToolbarItems>
         <ToolbarItem x:Name="AddButton" 
                      Text="Add" 
                      Clicked="AddButton_Clicked"
@@ -15,19 +35,80 @@
                      Text="Edit" 
                      Clicked="AccountButton_Clicked"
                      IconImageSource="account.png"/>
-    </Shell.ToolbarItems>
+    </Shell.ToolbarItems>-->
     <TabBar>
         <Tab Title="Invoices"
              Icon="file_invoice.png">
-            <ShellContent ContentTemplate="{DataTemplate views:InvoicePage}"/>
+            <ShellContent ContentTemplate="{DataTemplate views:InvoicePage}"></ShellContent>
+            <Shell.TitleView>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ImageButton Source="addpicture.png" 
+                     HorizontalOptions="StartAndExpand"
+                     Grid.Column="0"></ImageButton>
+                    <Label Text="Company Name" 
+               FontAttributes="Bold" 
+               HorizontalOptions="CenterAndExpand" 
+               VerticalOptions="Center"
+               Grid.Column="1"/>
+                    <ImageButton Source="account.png" 
+                     HorizontalOptions="EndAndExpand"
+                     Grid.Column="2"></ImageButton>
+                </Grid>
+            </Shell.TitleView>
         </Tab>
         <Tab Title="Vendors"
              Icon="vendors.png">
             <ShellContent ContentTemplate="{DataTemplate views:VendorsPage}"/>
+
+            <Shell.TitleView>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ImageButton Source="addpicture.png" 
+                     HorizontalOptions="StartAndExpand"
+                     Grid.Column="0"></ImageButton>
+                    <Label Text="Company Name" 
+               FontAttributes="Bold" 
+               HorizontalOptions="CenterAndExpand" 
+               VerticalOptions="Center"
+               Grid.Column="1"/>
+                    <ImageButton Source="account.png" 
+                     HorizontalOptions="EndAndExpand"
+                     Grid.Column="2"></ImageButton>
+                </Grid>
+            </Shell.TitleView>
         </Tab>
         <Tab Title="Dashboard"
              Icon="dashboard.png">
             <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}"/>
+            <Shell.TitleView>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ImageButton Source="addpicture.png" 
+                     HorizontalOptions="StartAndExpand"
+                     Grid.Column="0"></ImageButton>
+                    <Label Text="Company Name" 
+               FontAttributes="Bold" 
+               HorizontalOptions="CenterAndExpand" 
+               VerticalOptions="Center"
+               Grid.Column="1"/>
+                    <ImageButton Source="account.png" 
+                     HorizontalOptions="EndAndExpand"
+                     Grid.Column="2"></ImageButton>
+                </Grid>
+            </Shell.TitleView>
         </Tab>
         <Tab Title="Products"
              Icon="products.png">
@@ -41,6 +122,26 @@
                           ContentTemplate="{DataTemplate views:GroupsTab}"/>
             <ShellContent Title ="Custom Products" 
                           ContentTemplate="{DataTemplate views:CustomProductsTab}"/>
+            <Shell.TitleView>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <ImageButton Source="addpicture.png" 
+                     HorizontalOptions="StartAndExpand"
+                     Grid.Column="0"></ImageButton>
+                    <Label Text="Company Name" 
+               FontAttributes="Bold" 
+               HorizontalOptions="CenterAndExpand" 
+               VerticalOptions="Center"
+               Grid.Column="1"/>
+                    <ImageButton Source="account.png" 
+                     HorizontalOptions="EndAndExpand"
+                     Grid.Column="2"></ImageButton>
+                </Grid>
+            </Shell.TitleView>
         </Tab>
     </TabBar>
 </Shell>

@@ -5,7 +5,6 @@
              xmlns:model="clr-namespace:CleverAppen.Models"
              xmlns:viewmodel="clr-namespace:CleverAppen.ViewModels"
              x:DataType="viewmodel:ProductViewModel"
-             Title="Products"
              xmlns:control="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts">
     <Grid>
         <ListView ItemsSource="{Binding Products}" SelectionMode="None">
