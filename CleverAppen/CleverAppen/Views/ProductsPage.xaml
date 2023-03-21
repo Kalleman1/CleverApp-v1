@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:dxc="clr-namespace:DevExpress.Maui.Charts;assembly=DevExpress.Maui.Charts"
              x:Class="CleverAppen.Views.ProductsPage"
              xmlns:model="clr-namespace:CleverAppen.Models"
              xmlns:viewmodel="clr-namespace:CleverAppen.ViewModels"
-             x:DataType="viewmodel:ProductViewModel"
-             xmlns:control="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts">
+             x:DataType="viewmodel:ProductViewModel">
     <Grid>
         <ListView ItemsSource="{Binding Products}" SelectionMode="None">
             <ListView.ItemTemplate>
@@ -40,7 +40,33 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        <control:SfCircularChart>
+        <dxc:PieChartView  
+    SelectionMode="Single"  
+    SelectionBehavior="Hatch">
+            <dxc:PieChartView.Hint>
+                <dxc:PieHint ShowMode="OnTap"/>
+            </dxc:PieChartView.Hint>
+            <dxc:PieChartView.Series>
+                <dxc:DonutSeries>
+                    <dxc:DonutSeries.HintOptions>
+                        <dxc:PieSeriesHintOptions PointTextPattern="{}{L}: {VP}%"/>
+                    </dxc:DonutSeries.HintOptions>
+                    <dxc:DonutSeries.Data>
+                        <dxc:PieSeriesDataAdapter  
+                    DataSource="{Binding Products}" 
+                    LabelDataMember="Name" 
+                    ValueDataMember="Amount"/>
+                    </dxc:DonutSeries.Data>
+                </dxc:DonutSeries>
+            </dxc:PieChartView.Series>
+        </dxc:PieChartView>
+    </Grid>
+</ContentPage>
+
+
+
+
+<!--<control:SfCircularChart>
             <control:SfCircularChart.Legend>
                 <control:ChartLegend/>
             </control:SfCircularChart.Legend>
@@ -68,6 +94,4 @@
                                EnableTooltip="True"
                                TooltipTemplate="{StaticResource tooltipTemplate}">
             </control:DoughnutSeries>
-        </control:SfCircularChart>
-    </Grid>
-</ContentPage>
+        </control:SfCircularChart>-->

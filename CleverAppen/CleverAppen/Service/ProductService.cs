@@ -32,7 +32,7 @@ namespace CleverAppen.Service
                 return productList;
             }
 
-            var response = await httpClient.GetAsync("https://192.168.20.245:5074/Product");
+            var response = await httpClient.GetAsync("http://10.228.113.9:7074/Product");
 
             if (response.IsSuccessStatusCode)
             {
