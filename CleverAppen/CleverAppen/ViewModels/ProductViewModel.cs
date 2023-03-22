@@ -32,7 +32,7 @@ namespace CleverAppen.ViewModels
                     Products.Clear();
                 }
 
-                var products = await productService.GetProducts();
+                var products = await Task.Run(() => productService.GetProducts());
 
                 foreach (var product in products)
                 {

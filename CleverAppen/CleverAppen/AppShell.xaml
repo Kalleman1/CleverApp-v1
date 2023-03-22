@@ -21,6 +21,7 @@
             </Shell.TitleView>
         </Tab>
         <Tab Title="Vendors"
+             
              Icon="vendors.png">
             <ShellContent ContentTemplate="{DataTemplate views:VendorsPage}"
                           Route="vendors"/>

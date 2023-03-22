@@ -5,6 +5,7 @@ using CleverAppen.Service;
 using CleverAppen.ViewModels;
 using CleverAppen.Views;
 using Syncfusion.Maui.Core.Hosting;
+using DevExpress.Maui;
 
 namespace CleverAppen;
 public static class MauiProgram
@@ -12,8 +13,11 @@ public static class MauiProgram
     public static MauiApp CreateMauiApp()
     {
         var builder = MauiApp.CreateBuilder();
-        builder.ConfigureSyncfusionCore();
-        builder.UseMauiApp<App>().ConfigureFonts(fonts =>
+        builder
+            .UseMauiApp<App>()
+            .UseDevExpress()
+            .ConfigureFonts
+            (fonts =>
         {
             fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
             fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
