@@ -11,6 +11,16 @@ namespace CleverAppen.ViewModels
     public class BaseViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        private bool _isBusy;
+        public bool IsBusy
+        {
+            get => _isBusy;
+            set
+            {
+                _isBusy = value;
+                OnPropertyChanged();
+            }
+        }
 
         public void OnPropertyChanged([CallerMemberName] string name = null)
         {

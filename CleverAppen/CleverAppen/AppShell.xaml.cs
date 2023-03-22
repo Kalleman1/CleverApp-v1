@@ -17,6 +17,5 @@ public partial class AppShell : Shell
 
         int pageCount = Navigation.NavigationStack.Count;
     }
-
     
 }

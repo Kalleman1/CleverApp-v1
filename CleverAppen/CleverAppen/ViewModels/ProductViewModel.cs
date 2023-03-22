@@ -23,16 +23,25 @@ namespace CleverAppen.ViewModels
 
         public async Task GetProductsAsync()
         {
-            if (Products.Count > 0)
+            try
             {
-                Products.Clear();
+                IsBusy = true;
+
+                if (Products.Count > 0)
+                {
+                    Products.Clear();
+                }
+
+                var products = await productService.GetProducts();
+
+                foreach (var product in products)
+                {
+                    Products.Add(product);
+                }
             }
-
-            var products = await productService.GetProducts();
-
-            foreach (var product in products) 
+            finally
             {
-                Products.Add(product); 
+                IsBusy = false;
             }
         }
     }
