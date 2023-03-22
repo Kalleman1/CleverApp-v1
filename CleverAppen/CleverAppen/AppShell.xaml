@@ -14,37 +14,44 @@
     <TabBar>
         <Tab Title="Invoices"
              Icon="file_invoice.png">
-            <ShellContent ContentTemplate="{DataTemplate views:InvoicePage}"></ShellContent>
+            <ShellContent ContentTemplate="{DataTemplate views:InvoicePage}"
+                          Route="invoices"></ShellContent>
             <Shell.TitleView>
                 <views:TitleView/>
             </Shell.TitleView>
         </Tab>
         <Tab Title="Vendors"
              Icon="vendors.png">
-            <ShellContent ContentTemplate="{DataTemplate views:VendorsPage}"/>
+            <ShellContent ContentTemplate="{DataTemplate views:VendorsPage}"
+                          Route="vendors"/>
             <Shell.TitleView>
                 <views:TitleView/>
             </Shell.TitleView>
         </Tab>
         <Tab Title="Dashboard"
              Icon="dashboard.png">
-            <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}"/>
+            <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}"
+                          Route="dashboard"/>
             <Shell.TitleView>
                 <views:TitleView/>
             </Shell.TitleView>
         </Tab>
         <Tab Title="Products"
              Icon="products.png">
-            <ShellContent ContentTemplate="{DataTemplate views:ProductsPage}"/>
+            <ShellContent ContentTemplate="{DataTemplate views:ProductsPage}"
+                          Route="dasboard"/>
         </Tab>
         <Tab Title="Sale Items"
              Icon="sale_items.png">
             <ShellContent Title="Sale Items" 
-                          ContentTemplate="{DataTemplate views:SaleItemsPage}"/>
+                          ContentTemplate="{DataTemplate views:SaleItemsPage}"
+                          Route="sale_items"/>
             <ShellContent Title="Groups"  
-                          ContentTemplate="{DataTemplate views:GroupsTab}"/>
+                          ContentTemplate="{DataTemplate views:GroupsTab}"
+                          Route="groups"/>
             <ShellContent Title ="Custom Products" 
-                          ContentTemplate="{DataTemplate views:CustomProductsTab}"/>
+                          ContentTemplate="{DataTemplate views:CustomProductsTab}"
+                          Route="custom_products"/>
             <Shell.TitleView>
                 <views:TitleView/>
             </Shell.TitleView>

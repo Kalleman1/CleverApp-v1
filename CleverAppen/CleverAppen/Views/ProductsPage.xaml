@@ -6,7 +6,12 @@
              xmlns:viewmodel="clr-namespace:CleverAppen.ViewModels"
              x:DataType="viewmodel:ProductViewModel">
     <Grid>
-        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+        <ActivityIndicator IsRunning="{Binding IsBusy}" 
+                           IsVisible="{Binding IsBusy}" 
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand"
+                           Color="#347DFE"
+                           />
         <ListView ItemsSource="{Binding Products}" SelectionMode="None">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="model:Product">
