@@ -5,7 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:CleverAppen.Views;assembly=CleverAppen"
     Shell.FlyoutBehavior="Disabled"
-    BackgroundColor="#C1D8FF">
+    BackgroundColor="#C1D8FF"
+    xmlns:viewmodel="clr-namespace:CleverAppen.ViewModels"
+    xmlns:services="clr-namespace:CleverAppen.Service">
     <Shell.TitleView>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -13,7 +15,7 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
-            <ImageButton Source="addpicture.png" 
+            <ImageButton Source="addpicturepic.png" 
                      HorizontalOptions="StartAndExpand"
                      Grid.Column="0"
                          x:Name="AddPictureImageButton"
@@ -24,7 +26,7 @@
                HorizontalOptions="CenterAndExpand" 
                VerticalOptions="Center"
                Grid.Column="1"/>
-            <ImageButton Source="account.png" 
+            <ImageButton Source="accountpic.png" 
                      HorizontalOptions="EndAndExpand"
                      Grid.Column="2"
                          x:Name="AccountImageButtons"
@@ -32,16 +34,6 @@
                          InputTransparent="False"></ImageButton>
         </Grid>
     </Shell.TitleView>
-    <!--<Shell.ToolbarItems>
-        <ToolbarItem x:Name="AddButton" 
-                     Text="Add" 
-                     Clicked="AddButton_Clicked"
-                     IconImageSource="addpicture.png"/>
-        <ToolbarItem x:Name="AccountButton" 
-                     Text="Edit" 
-                     Clicked="AccountButton_Clicked"
-                     IconImageSource="account.png"/>
-    </Shell.ToolbarItems>-->
     <TabBar>
         <Tab Title="Invoices"
              Icon="file_invoice.png">
@@ -53,7 +45,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <ImageButton Source="addpicture.png" 
+                    <ImageButton Source="addpicturepic.png" 
                      HorizontalOptions="StartAndExpand"
                      Grid.Column="0"
                                  Clicked="AddPictureImageButton_Clicked"></ImageButton>
@@ -62,7 +54,7 @@
                HorizontalOptions="CenterAndExpand" 
                VerticalOptions="Center"
                Grid.Column="1"/>
-                    <ImageButton Source="account.png" 
+                    <ImageButton Source="accountpic.png" 
                      HorizontalOptions="EndAndExpand"
                      Grid.Column="2"
                                  Clicked="AccountImageButtons_Clicked"></ImageButton>
@@ -79,7 +71,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <ImageButton Source="addpicture.png" 
+                    <ImageButton Source="addpicturepic.png" 
                      HorizontalOptions="StartAndExpand"
                      Grid.Column="0"
                                  Clicked="AddPictureImageButton_Clicked"></ImageButton>
@@ -88,7 +80,7 @@
                HorizontalOptions="CenterAndExpand" 
                VerticalOptions="Center"
                Grid.Column="1"/>
-                    <ImageButton Source="account.png" 
+                    <ImageButton Source="accountpic.png" 
                      HorizontalOptions="EndAndExpand"
                      Grid.Column="2"
                                  Clicked="AccountImageButtons_Clicked"></ImageButton>
@@ -105,7 +97,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <ImageButton Source="addpicture.png" 
+                    <ImageButton Source="addpicturepic.png" 
                      HorizontalOptions="StartAndExpand"
                      Grid.Column="0"
                                  Clicked="AddPictureImageButton_Clicked"></ImageButton>
@@ -114,7 +106,7 @@
                HorizontalOptions="CenterAndExpand" 
                VerticalOptions="Center"
                Grid.Column="1"/>
-                    <ImageButton Source="account.png" 
+                    <ImageButton Source="accountpic.png" 
                      HorizontalOptions="EndAndExpand"
                      Grid.Column="2"
                                  Clicked="AccountImageButtons_Clicked"></ImageButton>
@@ -140,7 +132,7 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <ImageButton Source="addpicture.png" 
+                    <ImageButton Source="addpicturepic.png" 
                      HorizontalOptions="StartAndExpand"
                      Grid.Column="0"
                                  Clicked="AddPictureImageButton_Clicked"></ImageButton>
@@ -149,7 +141,7 @@
                HorizontalOptions="CenterAndExpand" 
                VerticalOptions="Center"
                Grid.Column="1"/>
-                    <ImageButton Source="account.png" 
+                    <ImageButton Source="accountpic.png" 
                      HorizontalOptions="EndAndExpand"
                      Grid.Column="2"
                                  Clicked="AccountImageButtons_Clicked"></ImageButton>
