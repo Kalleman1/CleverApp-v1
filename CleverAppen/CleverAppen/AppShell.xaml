@@ -9,108 +9,28 @@
     xmlns:viewmodel="clr-namespace:CleverAppen.ViewModels"
     xmlns:services="clr-namespace:CleverAppen.Service">
     <Shell.TitleView>
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <ImageButton Source="addpicturepic.png" 
-                     HorizontalOptions="StartAndExpand"
-                     Grid.Column="0"
-                         x:Name="AddPictureImageButton"
-                         Clicked="AddPictureImageButton_Clicked"
-                         InputTransparent="False"></ImageButton>
-            <Label Text="Company Name" 
-               FontAttributes="Bold" 
-               HorizontalOptions="CenterAndExpand" 
-               VerticalOptions="Center"
-               Grid.Column="1"/>
-            <ImageButton Source="accountpic.png" 
-                     HorizontalOptions="EndAndExpand"
-                     Grid.Column="2"
-                         x:Name="AccountImageButtons"
-                         Clicked="AccountImageButtons_Clicked"
-                         InputTransparent="False"></ImageButton>
-        </Grid>
+        <views:TitleView/>
     </Shell.TitleView>
     <TabBar>
         <Tab Title="Invoices"
              Icon="file_invoice.png">
             <ShellContent ContentTemplate="{DataTemplate views:InvoicePage}"></ShellContent>
             <Shell.TitleView>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <ImageButton Source="addpicturepic.png" 
-                     HorizontalOptions="StartAndExpand"
-                     Grid.Column="0"
-                                 Clicked="AddPictureImageButton_Clicked"></ImageButton>
-                    <Label Text="Company Name" 
-               FontAttributes="Bold" 
-               HorizontalOptions="CenterAndExpand" 
-               VerticalOptions="Center"
-               Grid.Column="1"/>
-                    <ImageButton Source="accountpic.png" 
-                     HorizontalOptions="EndAndExpand"
-                     Grid.Column="2"
-                                 Clicked="AccountImageButtons_Clicked"></ImageButton>
-                </Grid>
+                <views:TitleView/>
             </Shell.TitleView>
         </Tab>
         <Tab Title="Vendors"
              Icon="vendors.png">
             <ShellContent ContentTemplate="{DataTemplate views:VendorsPage}"/>
             <Shell.TitleView>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <ImageButton Source="addpicturepic.png" 
-                     HorizontalOptions="StartAndExpand"
-                     Grid.Column="0"
-                                 Clicked="AddPictureImageButton_Clicked"></ImageButton>
-                    <Label Text="Company Name" 
-               FontAttributes="Bold" 
-               HorizontalOptions="CenterAndExpand" 
-               VerticalOptions="Center"
-               Grid.Column="1"/>
-                    <ImageButton Source="accountpic.png" 
-                     HorizontalOptions="EndAndExpand"
-                     Grid.Column="2"
-                                 Clicked="AccountImageButtons_Clicked"></ImageButton>
-                </Grid>
+                <views:TitleView/>
             </Shell.TitleView>
         </Tab>
         <Tab Title="Dashboard"
              Icon="dashboard.png">
             <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}"/>
             <Shell.TitleView>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <ImageButton Source="addpicturepic.png" 
-                     HorizontalOptions="StartAndExpand"
-                     Grid.Column="0"
-                                 Clicked="AddPictureImageButton_Clicked"></ImageButton>
-                    <Label Text="Company Name" 
-               FontAttributes="Bold" 
-               HorizontalOptions="CenterAndExpand" 
-               VerticalOptions="Center"
-               Grid.Column="1"/>
-                    <ImageButton Source="accountpic.png" 
-                     HorizontalOptions="EndAndExpand"
-                     Grid.Column="2"
-                                 Clicked="AccountImageButtons_Clicked"></ImageButton>
-                </Grid>
+                <views:TitleView/>
             </Shell.TitleView>
         </Tab>
         <Tab Title="Products"
@@ -126,26 +46,7 @@
             <ShellContent Title ="Custom Products" 
                           ContentTemplate="{DataTemplate views:CustomProductsTab}"/>
             <Shell.TitleView>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
-                    </Grid.ColumnDefinitions>
-                    <ImageButton Source="addpicturepic.png" 
-                     HorizontalOptions="StartAndExpand"
-                     Grid.Column="0"
-                                 Clicked="AddPictureImageButton_Clicked"></ImageButton>
-                    <Label Text="Company Name" 
-               FontAttributes="Bold" 
-               HorizontalOptions="CenterAndExpand" 
-               VerticalOptions="Center"
-               Grid.Column="1"/>
-                    <ImageButton Source="accountpic.png" 
-                     HorizontalOptions="EndAndExpand"
-                     Grid.Column="2"
-                                 Clicked="AccountImageButtons_Clicked"></ImageButton>
-                </Grid>
+                <views:TitleView/>
             </Shell.TitleView>
         </Tab>
     </TabBar>
