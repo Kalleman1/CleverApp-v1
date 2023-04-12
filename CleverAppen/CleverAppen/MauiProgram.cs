@@ -34,7 +34,10 @@ public static class MauiProgram
         builder.Services.AddTransient<AccountOptionsViewModel>();
         builder.Services.AddTransient<AccountSettingsPage>();
         builder.Services.AddTransient<AccountSettingsViewModel>();
+
         builder.Services.AddTransient<AddInvoicePage>();
+
+        builder.Services.AddTransient<DashboardPage>();
 
 #if DEBUG
         builder.Logging.AddDebug();

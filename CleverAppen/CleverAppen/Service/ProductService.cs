@@ -32,12 +32,16 @@ namespace CleverAppen.Service
                 return productList;
             }
 
-            var response = await httpClient.GetAsync("https://192.168.20.245:5074/Product");
-
-            if (response.IsSuccessStatusCode)
+            await Task.Run(async () =>
             {
-                productList = await response.Content.ReadFromJsonAsync<List<Product>>();
-            }
+                var response = await httpClient.GetAsync("https://192.168.20.245:5074/Product");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    productList = await response.Content.ReadFromJsonAsync<List<Product>>();
+                }
+            });
+
 
             return productList;
         }

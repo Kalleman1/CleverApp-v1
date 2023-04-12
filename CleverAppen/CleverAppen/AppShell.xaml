@@ -12,36 +12,24 @@
         <views:TitleView/>
     </Shell.TitleView>
     <TabBar>
-        <Tab Title="Invoices"
-             Icon="file_invoice.png">
-            <ShellContent ContentTemplate="{DataTemplate views:InvoicePage}"
+        <ShellContent ContentTemplate="{DataTemplate views:InvoicePage}"
+                          Title="Invoices"
+                          Icon="file_invoice.png"
                           Route="invoices"></ShellContent>
-            <Shell.TitleView>
-                <views:TitleView/>
-            </Shell.TitleView>
-        </Tab>
-        <Tab Title="Vendors"
-             
-             Icon="vendors.png">
-            <ShellContent ContentTemplate="{DataTemplate views:VendorsPage}"
-                          Route="vendors"/>
-            <Shell.TitleView>
-                <views:TitleView/>
-            </Shell.TitleView>
-        </Tab>
-        <Tab Title="Dashboard"
-             Icon="dashboard.png">
-            <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}"
-                          Route="dashboard"/>
-            <Shell.TitleView>
-                <views:TitleView/>
-            </Shell.TitleView>
-        </Tab>
-        <Tab Title="Products"
-             Icon="products.png">
-            <ShellContent ContentTemplate="{DataTemplate views:ProductsPage}"
-                          Route="dasboard"/>
-        </Tab>
+        <ShellContent ContentTemplate="{DataTemplate views:VendorsPage}"
+                          Route="vendors"
+                          Title="Vendors"
+                          Icon="vendors.png"/>
+        <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}"
+                          IsVisible="True"
+                          Route="dashboard"
+                          Title="Dashboard"
+                          x:Name="DashboardItem"
+                          Icon="dashboard.png"/>
+        <ShellContent ContentTemplate="{DataTemplate views:ProductsPage}"
+                          Title="Products"
+                          Route="dasboard"
+                          Icon="products.png"/>
         <Tab Title="Sale Items"
              Icon="sale_items.png">
             <ShellContent Title="Sale Items" 

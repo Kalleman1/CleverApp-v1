@@ -12,8 +12,8 @@ public partial class ProductsPage : ContentPage
         InitializeComponent();
 
         BindingContext = productViewModel;
+        productViewModel.GetProductsCommand.Execute(this);
         NavigationPage.SetHasNavigationBar(this, false);
         NavigationPage.SetBackButtonTitle(this, null);
-        productViewModel.GetProductsCommand.Execute(this);
     }
 }

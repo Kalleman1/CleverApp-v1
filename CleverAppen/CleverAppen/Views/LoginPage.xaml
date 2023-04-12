@@ -17,7 +17,8 @@
                    Margin="10"
                    TextColor="#43425D"
                    BackgroundColor="#EDEDF2"
-                   WidthRequest="300"/>
+                   WidthRequest="300"
+                   Text="dummyuser@gmail.com"/>
             <Label Text="Password"
                    TextColor="#43425D"
                    HorizontalTextAlignment="Start"
@@ -30,6 +31,7 @@
                    TextColor="#43425D"
                    BackgroundColor="#EDEDF2"
                    WidthRequest="300"
+                   Text="$2y$10$oAH6Sxk7sj2b5FKrNx/TUOECBJX6hcgiSi2WeIPzP7pBUX9MyqkoW"
                    />
             <Button BackgroundColor="#347DFE" 
                     x:Name="LoginButton" 
