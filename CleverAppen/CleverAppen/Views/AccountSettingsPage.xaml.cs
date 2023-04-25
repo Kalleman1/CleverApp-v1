@@ -11,9 +11,6 @@ public partial class AccountSettingsPage : ContentPage
 		InitializeComponent();
 
         BindingContext = viewModel;
-        NavigationPage.SetHasNavigationBar(this, false);
-        Shell.SetTabBarIsVisible(this, false);
-        Shell.SetNavBarIsVisible(this, false);
     }
 
     private async void CancelButton_Clicked(object sender, EventArgs e)

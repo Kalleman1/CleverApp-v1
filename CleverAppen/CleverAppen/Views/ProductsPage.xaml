@@ -5,7 +5,8 @@
              xmlns:model="clr-namespace:CleverAppen.Models"
              xmlns:viewmodel="clr-namespace:CleverAppen.ViewModels"
              x:DataType="viewmodel:ProductViewModel"
-             xmlns:dxc="clr-namespace:DevExpress.Maui.Charts;assembly=DevExpress.Maui.Charts">
+             xmlns:dxc="clr-namespace:DevExpress.Maui.Charts;assembly=DevExpress.Maui.Charts"
+             Title="Products">
     <Grid>
             <ListView ItemsSource="{Binding Products}" SelectionMode="None">
                 <ListView.ItemTemplate>

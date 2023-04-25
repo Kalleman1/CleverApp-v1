@@ -54,6 +54,7 @@
 	  <None Remove="Resources\Images\camera.png" />
 	  <None Remove="Resources\Images\changecompany.png" />
 	  <None Remove="Resources\Images\clevercost_login.png" />
+	  <None Remove="Resources\Images\home.png" />
 	  <None Remove="Resources\Images\loginlogo.png" />
 	  <None Remove="Resources\Images\logout.png" />
 	  <None Remove="Resources\Images\Settings.png" />
@@ -96,9 +97,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\SaleItemsPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Views\TitleView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\VendorsPage.xaml">
