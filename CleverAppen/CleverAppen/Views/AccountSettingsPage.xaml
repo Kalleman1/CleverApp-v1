@@ -4,7 +4,7 @@
              x:Class="CleverAppen.Views.AccountSettingsPage"
              xmlns:viewmodel="clr-namespace:CleverAppen.ViewModels"
              x:DataType="viewmodel:AccountSettingsViewModel"
-             Title="AccountSettingsPage">
+             Title="Account Settings">
     <VerticalStackLayout Padding="10">
         <Button Text="Account overview"
                 TextColor="#43425D"

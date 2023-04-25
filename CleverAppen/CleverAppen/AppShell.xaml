@@ -4,58 +4,133 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:CleverAppen.Views;assembly=CleverAppen"
-    Shell.FlyoutBehavior="Disabled"
     BackgroundColor="#C1D8FF"
     xmlns:viewmodel="clr-namespace:CleverAppen.ViewModels"
     xmlns:services="clr-namespace:CleverAppen.Service">
-    <Shell.TitleView>
-        <views:TitleView/>
-    </Shell.TitleView>
-    <TabBar>
-        <Tab Title="Invoices"
-             Icon="file_invoice.png">
-            <ShellContent ContentTemplate="{DataTemplate views:InvoicePage}"
-                          Route="invoices"></ShellContent>
-            <Shell.TitleView>
-                <views:TitleView/>
-            </Shell.TitleView>
+    <Shell.FlyoutHeader>
+        <Label Text="Menu"
+               FontSize="30"
+               FontAttributes="Bold"
+               Margin="20"/>
+    </Shell.FlyoutHeader>
+    <Shell.FlyoutContent>
+        <VerticalStackLayout VerticalOptions="Start">
+            <Label Text="Sections" 
+                   FontSize="15"
+                   FontAttributes="Bold"
+                   Margin="10"/>
+            <Grid ColumnDefinitions="Auto, *, Auto"
+                  Padding="10"
+                  ColumnSpacing="10">
+                <Image Grid.Column="0"
+                       Source="dashboard.png"
+                       Aspect="AspectFill"
+                       HeightRequest="25"
+                       WidthRequest="25"/>
+                <Label Grid.Column="1"
+                       Text="Dashboard"
+                       FontAttributes="Bold"
+                       FontSize="15"
+                       VerticalTextAlignment="Center"
+                       />
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="DashboardTap" Command="{Binding ProductsCommand}"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Grid ColumnDefinitions="Auto, *, Auto"
+                  Padding="10"
+                  ColumnSpacing="10">
+                <Image Grid.Column="0"
+                       Source="products.png"
+                       Aspect="AspectFill"
+                       HeightRequest="25"
+                       WidthRequest="25"/>
+                <Label Grid.Column="1"
+                       Text="Products"
+                       FontAttributes="Bold"
+                       FontSize="15"
+                       VerticalTextAlignment="Center"
+                       />
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ProductsCommand}"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Grid ColumnDefinitions="Auto, *, Auto"
+                  Padding="10"
+                  ColumnSpacing="10">
+                <Image Grid.Column="0"
+                       Source="file_invoice.png"
+                       Aspect="AspectFill"
+                       HeightRequest="25"
+                       WidthRequest="25"/>
+                <Label Grid.Column="1"
+                       Text="Invoices"
+                       FontAttributes="Bold"
+                       FontSize="15"
+                       VerticalTextAlignment="Center"
+                       />
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding InvoicesCommand}"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Grid ColumnDefinitions="Auto, *, Auto"
+                  Padding="10"
+                  ColumnSpacing="10">
+                <Image Grid.Column="0"
+                       Source="vendors.png"
+                       Aspect="AspectFill"
+                       HeightRequest="25"
+                       WidthRequest="25"/>
+                <Label Grid.Column="1"
+                       Text="Vendors"
+                       FontAttributes="Bold"
+                       FontSize="15"
+                       VerticalTextAlignment="Center"
+                       />
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding VendorsCommand}"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Grid ColumnDefinitions="Auto, *, Auto"
+                  Padding="10"
+                  ColumnSpacing="10">
+                <Image Grid.Column="0"
+                       Source="sale_items.png"
+                       Aspect="AspectFill"
+                       HeightRequest="25"
+                       WidthRequest="25"/>
+                <Label Grid.Column="1"
+                       Text="Sale Items"
+                       FontAttributes="Bold"
+                       FontSize="15"
+                       VerticalTextAlignment="Center"
+                       />
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SaleItemsCommand}"/>
+                </Grid.GestureRecognizers>
+            </Grid>
+            <Label Text="Tools" 
+                   FontSize="15"
+                   FontAttributes="Bold"
+                   Margin="10"/>
+            <Label Text="Account" 
+                   FontSize="15"
+                   FontAttributes="Bold"
+                   Margin="10"/>
+        </VerticalStackLayout>
+    </Shell.FlyoutContent>
+    <FlyoutItem Title="Dashboard" Icon="dashboard.png">
+        <Tab Title="Home"
+             Icon="home.png">
+            <ShellContent Route="DashboardPage" ContentTemplate="{DataTemplate views:DashboardPage}" />
         </Tab>
-        <Tab Title="Vendors"
-             
-             Icon="vendors.png">
-            <ShellContent ContentTemplate="{DataTemplate views:VendorsPage}"
-                          Route="vendors"/>
-            <Shell.TitleView>
-                <views:TitleView/>
-            </Shell.TitleView>
+        <Tab Title="Camera"
+             Icon="camera.png">
+            <ShellContent Route="DashboardPage" ContentTemplate="{DataTemplate views:DashboardPage}"/>
         </Tab>
-        <Tab Title="Dashboard"
-             Icon="dashboard.png">
-            <ShellContent ContentTemplate="{DataTemplate views:DashboardPage}"
-                          Route="dashboard"/>
-            <Shell.TitleView>
-                <views:TitleView/>
-            </Shell.TitleView>
+        <Tab Title="Settings"
+             Icon="settings.png">
+            <ShellContent Route="AccountSettingsPage" ContentTemplate="{DataTemplate views:AccountSettingsPage}" />
         </Tab>
-        <Tab Title="Products"
-             Icon="products.png">
-            <ShellContent ContentTemplate="{DataTemplate views:ProductsPage}"
-                          Route="dasboard"/>
-        </Tab>
-        <Tab Title="Sale Items"
-             Icon="sale_items.png">
-            <ShellContent Title="Sale Items" 
-                          ContentTemplate="{DataTemplate views:SaleItemsPage}"
-                          Route="sale_items"/>
-            <ShellContent Title="Groups"  
-                          ContentTemplate="{DataTemplate views:GroupsTab}"
-                          Route="groups"/>
-            <ShellContent Title ="Custom Products" 
-                          ContentTemplate="{DataTemplate views:CustomProductsTab}"
-                          Route="custom_products"/>
-            <Shell.TitleView>
-                <views:TitleView/>
-            </Shell.TitleView>
-        </Tab>
-    </TabBar>
+    </FlyoutItem>
 </Shell>

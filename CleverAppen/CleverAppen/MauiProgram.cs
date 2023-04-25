@@ -30,6 +30,10 @@ public static class MauiProgram
         builder.Services.AddSingleton<ProductService>();
         builder.Services.AddTransient<ProductViewModel>();
 
+        builder.Services.AddTransient<GroupsTab>();
+        builder.Services.AddTransient<CustomProductsTab>();
+        builder.Services.AddTransient<SaleItemsPage>();
+
         builder.Services.AddTransient<AccountOptionsPage>();
         builder.Services.AddTransient<AccountOptionsViewModel>();
         builder.Services.AddTransient<AccountSettingsPage>();
