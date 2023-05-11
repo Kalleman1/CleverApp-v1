@@ -26,5 +26,10 @@ namespace CleverAppen.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));  
         }
+
+        public void RaisePropertyChanged(string v)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(v));
+        }
     }
 }

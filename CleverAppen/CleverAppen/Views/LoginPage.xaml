@@ -2,73 +2,79 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CleverAppen.Views.LoginPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="LoginPage"
              BackgroundColor="White">
-    <Grid >
-        <VerticalStackLayout>
-            <Image Source="clevercost_login.png"/>
-            <Label Text="Account e-mail"
+    <Grid toolkit:StateContainer.CurrentState="{Binding CurrentState}"
+          toolkit:StateContainer.CanStateChange="{Binding CanStateChange}">
+        <toolkit:StateContainer.StateViews>
+            <VerticalStackLayout toolkit:StateView.StateKey="IsNotLoggedIn">
+                <Image Source="clevercost_login.png"/>
+                <Label Text="Account e-mail"
                    TextColor="#43425D"
                    HorizontalTextAlignment="Start"
                    Margin="43, 0,0,0"/>
-            <Entry Placeholder="Username" 
+                <Entry Placeholder="Username" 
                    HorizontalOptions="CenterAndExpand" 
                    x:Name="UsernameTextBox"
+                   Text="{Binding UserName}"
                    Margin="10"
                    TextColor="#43425D"
                    BackgroundColor="#EDEDF2"
                    WidthRequest="300"/>
-            <Label Text="Password"
+                <Label Text="Password"
                    TextColor="#43425D"
                    HorizontalTextAlignment="Start"
                    Margin="43, 0,0,0"/>
-            <Entry Placeholder="Password" 
+                <Entry Placeholder="Password" 
                    HorizontalOptions="CenterAndExpand" 
                    IsPassword="True" 
                    x:Name="PasswordTextBox"
+                   Text="{Binding UserPassword}"
                    Margin="10"
                    TextColor="#43425D"
                    BackgroundColor="#EDEDF2"
                    WidthRequest="300"
                    />
-            <Button BackgroundColor="#347DFE" 
+                <Button BackgroundColor="#347DFE" 
                     x:Name="LoginButton" 
                     Text="Login" 
                     CornerRadius="10" 
                     WidthRequest="300"
-                    Clicked="LoginButton_Clicked"
+                    Command="{Binding LoginBtn}"
                     Margin="10"/>
-            <Grid Margin="10">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
-                <BoxView Grid.Column="0"
+                <Grid Margin="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView Grid.Column="0"
                          Color="Black"
                          HeightRequest="1"
                          VerticalOptions="Center"
                          Margin="10"/>
-                <BoxView Grid.Column="2"
+                    <BoxView Grid.Column="2"
                          Color="Black"
                          HeightRequest="1"
                          VerticalOptions="Center"
                          Margin="10"/>
-                <Label Grid.Column="1"
+                    <Label Grid.Column="1"
                        Text="Or"
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="Center"
                        TextColor="#43425D"
                        FontAttributes="Bold"/>
-            </Grid>
-            <Label TextColor="Blue" 
+                </Grid>
+                <Label TextColor="Blue" 
                    TextDecorations="Underline" 
                    HorizontalOptions="Center" 
-                   Text="Sign in">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </Label.GestureRecognizers>
-            </Label>
-        </VerticalStackLayout>
+                   Text="Sign up">
+                </Label>
+            </VerticalStackLayout>
+            <VerticalStackLayout toolkit:StateView.StateKey="IsLoggedIn">
+                <Label>Logged in</Label>
+            </VerticalStackLayout>
+        </toolkit:StateContainer.StateViews>
     </Grid>
 </ContentPage>
