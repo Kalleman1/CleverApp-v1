@@ -13,7 +13,7 @@ using CommunityToolkit.Maui.Layouts;
 
 namespace CleverAppen.ViewModels
 {
-    public partial class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel
     {
         public string webApiKey = "AIzaSyAlK9GyxNO9Zv7pUZskBNrV0laWWVS-N2g";
         public INavigation _navigation;
@@ -85,7 +85,8 @@ namespace CleverAppen.ViewModels
                 Preferences.Set("FreshFirebaseToken", serializedContent);
                 this.UserId = userId;
                 //CurrentState = "IsLoggedIn";
-                await this._navigation.PushAsync(new AppShell());
+                var appShell = new AppShell();
+                Application.Current.MainPage = appShell;
             }
             catch (Exception ex)
             {
