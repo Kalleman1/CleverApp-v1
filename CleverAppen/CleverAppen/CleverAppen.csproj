@@ -51,14 +51,19 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\accountpic.png" />
 	  <None Remove="Resources\Images\addpicturepic.png" />
-	  <None Remove="Resources\Images\camera.png" />
+	  <None Remove="Resources\Images\Camera.svg" />
 	  <None Remove="Resources\Images\changecompany.png" />
 	  <None Remove="Resources\Images\clevercost_login.png" />
+	  <None Remove="Resources\Images\dashboard.svg" />
 	  <None Remove="Resources\Images\home.png" />
+	  <None Remove="Resources\Images\invoices.svg" />
 	  <None Remove="Resources\Images\loginlogo.png" />
 	  <None Remove="Resources\Images\logout.png" />
-	  <None Remove="Resources\Images\Settings.png" />
+	  <None Remove="Resources\Images\products.svg" />
+	  <None Remove="Resources\Images\sale_items.svg" />
+	  <None Remove="Resources\Images\settings.svg" />
 	  <None Remove="Resources\Images\upload.png" />
+	  <None Remove="Resources\Images\vendors.svg" />
 	</ItemGroup>
 
 	<ItemGroup>

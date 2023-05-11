@@ -6,7 +6,8 @@
     xmlns:views="clr-namespace:CleverAppen.Views;assembly=CleverAppen"
     BackgroundColor="#C1D8FF"
     xmlns:viewmodel="clr-namespace:CleverAppen.ViewModels"
-    xmlns:services="clr-namespace:CleverAppen.Service">
+    xmlns:services="clr-namespace:CleverAppen.Service"
+    FlyoutWidth="250">
     <Shell.FlyoutHeader>
         <Label Text="Menu"
                FontSize="30"
@@ -23,7 +24,7 @@
                   Padding="10"
                   ColumnSpacing="10">
                 <Image Grid.Column="0"
-                       Source="dashboard.png"
+                       Source="dashboard.svg"
                        Aspect="AspectFill"
                        HeightRequest="25"
                        WidthRequest="25"/>
@@ -41,7 +42,7 @@
                   Padding="10"
                   ColumnSpacing="10">
                 <Image Grid.Column="0"
-                       Source="products.png"
+                       Source="products.svg"
                        Aspect="AspectFill"
                        HeightRequest="25"
                        WidthRequest="25"/>
@@ -59,7 +60,7 @@
                   Padding="10"
                   ColumnSpacing="10">
                 <Image Grid.Column="0"
-                       Source="file_invoice.png"
+                       Source="invoices.svg"
                        Aspect="AspectFill"
                        HeightRequest="25"
                        WidthRequest="25"/>
@@ -77,7 +78,7 @@
                   Padding="10"
                   ColumnSpacing="10">
                 <Image Grid.Column="0"
-                       Source="vendors.png"
+                       Source="vendors.svg"
                        Aspect="AspectFill"
                        HeightRequest="25"
                        WidthRequest="25"/>
@@ -95,7 +96,7 @@
                   Padding="10"
                   ColumnSpacing="10">
                 <Image Grid.Column="0"
-                       Source="sale_items.png"
+                       Source="sale_items.svg"
                        Aspect="AspectFill"
                        HeightRequest="25"
                        WidthRequest="25"/>
@@ -119,17 +120,17 @@
                    Margin="10"/>
         </VerticalStackLayout>
     </Shell.FlyoutContent>
-    <FlyoutItem Title="Dashboard" Icon="dashboard.png">
+    <FlyoutItem Title="Dashboard" Icon="dashboard.svg">
         <Tab Title="Home"
-             Icon="home.png">
+             Icon="dashboard.png">
             <ShellContent Route="DashboardPage" ContentTemplate="{DataTemplate views:DashboardPage}" />
         </Tab>
         <Tab Title="Camera"
-             Icon="camera.png">
+             Icon="camera.svg">
             <ShellContent Route="DashboardPage" ContentTemplate="{DataTemplate views:DashboardPage}"/>
         </Tab>
         <Tab Title="Settings"
-             Icon="settings.png">
+             Icon="settings.svg">
             <ShellContent Route="AccountSettingsPage" ContentTemplate="{DataTemplate views:AccountSettingsPage}" />
         </Tab>
     </FlyoutItem>

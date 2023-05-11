@@ -84,8 +84,8 @@ namespace CleverAppen.ViewModels
                 var userId = auth.User.LocalId;
                 Preferences.Set("FreshFirebaseToken", serializedContent);
                 this.UserId = userId;
-                CurrentState = "IsLoggedIn";
-                //await this._navigation.PushAsync(new AppShell());
+                //CurrentState = "IsLoggedIn";
+                await this._navigation.PushAsync(new AppShell());
             }
             catch (Exception ex)
             {
