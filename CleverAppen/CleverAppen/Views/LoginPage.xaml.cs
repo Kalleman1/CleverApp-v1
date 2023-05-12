@@ -9,7 +9,7 @@ public partial class LoginPage : ContentPage
 	{
 		InitializeComponent();
 
-		BindingContext = new LoginViewModel(Navigation);
+		BindingContext = new LoginViewModel();
 
 		NavigationPage.SetHasNavigationBar(this, false);
 		NavigationPage.SetBackButtonTitle(this, null);

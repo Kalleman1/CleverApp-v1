@@ -9,5 +9,6 @@ namespace CleverAppen.Models
     public class Company
     {
         public string Name { get; set; }
+        public string Image { get; set; }
     }
 }

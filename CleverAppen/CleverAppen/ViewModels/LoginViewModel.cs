@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 using CleverAppen.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Maui.Layouts;
+using Firebase.Database.Query;
 
 namespace CleverAppen.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
         public string webApiKey = "AIzaSyAlK9GyxNO9Zv7pUZskBNrV0laWWVS-N2g";
-        public INavigation _navigation;
         private string userName;
         private string userPassword;
         private string userId;
@@ -65,9 +65,8 @@ namespace CleverAppen.ViewModels
             }
         }
 
-        public LoginViewModel(INavigation navigation)
+        public LoginViewModel()
         {
-            this._navigation = navigation;
             LoginBtn = new Command(LoginBtnTappedAsync);
         }
 
@@ -83,10 +82,11 @@ namespace CleverAppen.ViewModels
                 var serializedContent = JsonConvert.SerializeObject(content);
                 var userId = auth.User.LocalId;
                 Preferences.Set("FreshFirebaseToken", serializedContent);
-                this.UserId = userId;
-                //CurrentState = "IsLoggedIn";
-                var appShell = new AppShell();
-                Application.Current.MainPage = appShell;
+                this.UserId = "User1";
+                await GetCompaniesForUser(UserId);
+                CurrentState = "IsLoggedIn";
+                //var appShell = new AppShell();
+                //Application.Current.MainPage = appShell;
             }
             catch (Exception ex)
             {
@@ -94,6 +94,23 @@ namespace CleverAppen.ViewModels
                 throw;
             }
 
+        }
+
+        public async Task<List<Company>> GetCompaniesForUser(string userId)
+        {
+            List<Company> companies = new List<Company>();
+
+            var companiesNode = firebaseClient.Child("Users").Child(userId).Child("Companies");
+
+            var snapshot = await companiesNode.OnceAsync<Company>();
+
+            foreach(var companySnapshot in snapshot)
+            {
+                Company company = companySnapshot.Object;
+                companies.Add(company);
+            }
+
+            return companies;
         }
     }
 }

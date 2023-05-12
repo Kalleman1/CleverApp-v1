@@ -73,7 +73,14 @@
                 </Label>
             </VerticalStackLayout>
             <VerticalStackLayout toolkit:StateView.StateKey="IsLoggedIn">
-                <Label>Logged in</Label>
+                <Image Source="clevercost_login.png"/>
+                <Button BackgroundColor="#347DFE" 
+                    x:Name="ChooseCompanyBtn" 
+                    Text="Continue" 
+                    CornerRadius="10" 
+                    WidthRequest="300"
+                    Command="{Binding LoginBtn}"
+                    Margin="10"/>
             </VerticalStackLayout>
         </toolkit:StateContainer.StateViews>
     </Grid>
