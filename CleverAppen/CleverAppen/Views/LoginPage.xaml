@@ -74,12 +74,20 @@
             </VerticalStackLayout>
             <VerticalStackLayout toolkit:StateView.StateKey="IsLoggedIn">
                 <Image Source="clevercost_login.png"/>
+                <ListView x:Name="companiesListView" ItemsSource="{Binding Companies}" SelectedItem="">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Name}"/>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
                 <Button BackgroundColor="#347DFE" 
                     x:Name="ChooseCompanyBtn" 
                     Text="Continue" 
                     CornerRadius="10" 
                     WidthRequest="300"
-                    Command="{Binding LoginBtn}"
+                    Command="{Binding ChooseCompanyBtn}"
+                    CommandParameter="{Binding SelectedItem, Source={x:Reference companiesListView}}"
                     Margin="10"/>
             </VerticalStackLayout>
         </toolkit:StateContainer.StateViews>

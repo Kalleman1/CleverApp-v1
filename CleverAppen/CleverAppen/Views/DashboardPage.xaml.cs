@@ -7,5 +7,7 @@ public partial class DashboardPage : ContentPage
 		InitializeComponent();
         NavigationPage.SetHasNavigationBar(this, false);
         NavigationPage.SetBackButtonTitle(this, null);
+
+
     }
 }

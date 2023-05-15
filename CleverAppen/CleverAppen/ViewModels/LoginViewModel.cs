@@ -17,6 +17,7 @@ namespace CleverAppen.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         public string webApiKey = "AIzaSyAlK9GyxNO9Zv7pUZskBNrV0laWWVS-N2g";
+        public List<Company> Companies { get; set; }
         private string userName;
         private string userPassword;
         private string userId;
@@ -34,6 +35,7 @@ namespace CleverAppen.ViewModels
         }
 
         public Command LoginBtn { get; }
+        public Command ChooseCompanyBtn { get; }
 
         public string UserId
         {
@@ -68,6 +70,7 @@ namespace CleverAppen.ViewModels
         public LoginViewModel()
         {
             LoginBtn = new Command(LoginBtnTappedAsync);
+            ChooseCompanyBtn = new Command(ChooseCompanyBtnTappedAsync);
         }
 
         private async void LoginBtnTappedAsync(object obj)
@@ -82,17 +85,22 @@ namespace CleverAppen.ViewModels
                 var serializedContent = JsonConvert.SerializeObject(content);
                 var userId = auth.User.LocalId;
                 Preferences.Set("FreshFirebaseToken", serializedContent);
-                this.UserId = "User1";
+                this.UserId = userId;
                 await GetCompaniesForUser(UserId);
                 CurrentState = "IsLoggedIn";
-                //var appShell = new AppShell();
-                //Application.Current.MainPage = appShell;
             }
             catch (Exception ex)
             {
                 await App.Current.MainPage.DisplayAlert("Error", ex.Message, "Ok");
                 throw;
             }
+
+        }
+
+        public async void ChooseCompanyBtnTappedAsync(object selectedCompany)
+        {
+            var appShell = new AppShell();
+            await appShell.GoToAsync($"//dashboardPage?selectedCompany={selectedCompany}");
 
         }
 
@@ -109,7 +117,7 @@ namespace CleverAppen.ViewModels
                 Company company = companySnapshot.Object;
                 companies.Add(company);
             }
-
+            Companies = companies;
             return companies;
         }
     }
