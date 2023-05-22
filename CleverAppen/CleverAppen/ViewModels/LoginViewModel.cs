@@ -11,6 +11,7 @@ using CleverAppen.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Maui.Layouts;
 using Firebase.Database.Query;
+using CleverAppen.Views;
 
 namespace CleverAppen.ViewModels
 {
@@ -78,7 +79,7 @@ namespace CleverAppen.ViewModels
             var authProvider = new FirebaseAuthProvider(new FirebaseConfig(webApiKey));
             try
             {
-                //Login with username and password
+                //Login with username and password using firebase
                 var auth = await authProvider.SignInWithEmailAndPasswordAsync(UserName, UserPassword);
 
                 var content = await auth.GetFreshAuthAsync();
@@ -97,10 +98,12 @@ namespace CleverAppen.ViewModels
 
         }
 
-        public async void ChooseCompanyBtnTappedAsync(object selectedCompany)
+        public void ChooseCompanyBtnTappedAsync(object selectedCompany)
         {
+            App.SelectedCompany = (Company)selectedCompany;
+
             var appShell = new AppShell();
-            await appShell.GoToAsync($"//dashboardPage?selectedCompany={selectedCompany}");
+            Application.Current.MainPage = appShell;
 
         }
 

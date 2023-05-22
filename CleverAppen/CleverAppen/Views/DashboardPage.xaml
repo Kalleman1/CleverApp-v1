@@ -2,8 +2,42 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CleverAppen.Views.DashboardPage"
-             Title="Dashboard">
+             Title="Dashboard"
+             BackgroundColor="#F7F8FA">
     <VerticalStackLayout>
-        <Label Text="Dashboard"></Label>
+        <!-- Expenses -->
+        <Frame Margin="10">
+            <VerticalStackLayout>
+                <Label HorizontalOptions="Center" Margin="5">Expenses</Label>
+                <HorizontalStackLayout>
+                    <VerticalStackLayout Padding="10">
+                        <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This month</Label>
+                        <Label>To be added.</Label>
+                    </VerticalStackLayout>
+                    <BoxView BackgroundColor="Grey" WidthRequest="1" VerticalOptions="FillAndExpand" Margin="65,0,0,0"></BoxView>
+                    <VerticalStackLayout Padding="10" HorizontalOptions="EndAndExpand" Margin="60,0,0,0">
+                        <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This year</Label>
+                        <Label>To be added.</Label>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+        <!-- Invoices -->
+        <Frame Margin="10">
+            <VerticalStackLayout>
+                <Label HorizontalOptions="Center" Margin="5">Invoices</Label>
+                <HorizontalStackLayout>
+                    <VerticalStackLayout Padding="10">
+                        <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This month</Label>
+                        <Label Text="{Binding SelectedCompany.ThisMonthInvoices}" HorizontalTextAlignment="Center"></Label>
+                    </VerticalStackLayout>
+                    <BoxView BackgroundColor="Grey" WidthRequest="1" VerticalOptions="FillAndExpand" Margin="83,0,0,0"></BoxView>
+                    <VerticalStackLayout Padding="10" HorizontalOptions="EndAndExpand" Margin="65,0,0,0">
+                        <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This year</Label>
+                        <Label Text="{Binding SelectedCompany.YearlyInvoices}" HorizontalTextAlignment="Center"></Label>
+                    </VerticalStackLayout>
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
     </VerticalStackLayout>
 </ContentPage>

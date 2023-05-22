@@ -74,7 +74,7 @@
             </VerticalStackLayout>
             <VerticalStackLayout toolkit:StateView.StateKey="IsLoggedIn">
                 <Image Source="clevercost_login.png"/>
-                <ListView x:Name="companiesListView" ItemsSource="{Binding Companies}" SelectedItem="">
+                <ListView x:Name="companiesListView" ItemsSource="{Binding Companies}" SelectedItem="{Binding SelectedCompany}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <TextCell Text="{Binding Name}"/>

@@ -4,10 +4,11 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:CleverAppen.Views;assembly=CleverAppen"
-    BackgroundColor="#C1D8FF"
+    BackgroundColor="#FFFFFF"
     xmlns:viewmodel="clr-namespace:CleverAppen.ViewModels"
     xmlns:services="clr-namespace:CleverAppen.Service"
-    FlyoutWidth="250">
+    FlyoutWidth="250"
+    >
     <Shell.FlyoutHeader>
         <Label Text="Menu"
                FontSize="30"
