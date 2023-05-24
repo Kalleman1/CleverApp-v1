@@ -98,9 +98,10 @@ namespace CleverAppen.ViewModels
 
         }
 
-        public void ChooseCompanyBtnTappedAsync(object selectedCompany)
+        public async void ChooseCompanyBtnTappedAsync(object selectedCompany)
         {
             App.SelectedCompany = (Company)selectedCompany;
+            await GetProductsForCompany(UserId, App.SelectedCompany.Name);
 
             var appShell = new AppShell();
             Application.Current.MainPage = appShell;
@@ -122,6 +123,23 @@ namespace CleverAppen.ViewModels
             }
             Companies = companies;
             return companies;
+        }
+
+        public async Task<List<Product>> GetProductsForCompany(string userId, string companyName)
+        {
+            List<Product> products = new List<Product>();
+
+            var productsNode = firebaseClient.Child("Users").Child(userId).Child("Companies").Child(companyName).Child("Products");
+
+            var snapshot = await productsNode.OnceAsync<Product>();
+
+            foreach(var productSnapshot in snapshot)
+            {
+                Product product = productSnapshot.Object;
+                products.Add(product);
+            }
+            App.Products = products;
+            return products;
         }
     }
 }

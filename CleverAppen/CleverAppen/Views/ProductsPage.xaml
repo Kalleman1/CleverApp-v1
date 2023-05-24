@@ -7,7 +7,7 @@
              x:DataType="viewmodel:ProductViewModel"
              xmlns:dxc="clr-namespace:DevExpress.Maui.Charts;assembly=DevExpress.Maui.Charts"
              Title="Products">
-    <Grid>
+    <!--<Grid>
             <ListView ItemsSource="{Binding Products}" SelectionMode="None">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="model:Product">
@@ -70,5 +70,5 @@
                            HorizontalOptions="CenterAndExpand"
                            Color="#347DFE"
                            />
-    </Grid>
+    </Grid>-->
 </ContentPage>

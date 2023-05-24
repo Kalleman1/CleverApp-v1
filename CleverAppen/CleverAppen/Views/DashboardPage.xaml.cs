@@ -5,7 +5,6 @@ namespace CleverAppen.Views;
 
 public partial class DashboardPage : ContentPage
 {
-    //public Company DashboardCompany { get; set; }
 	public DashboardPage()
 	{
 		InitializeComponent();
@@ -13,9 +12,4 @@ public partial class DashboardPage : ContentPage
         NavigationPage.SetHasNavigationBar(this, false);
         NavigationPage.SetBackButtonTitle(this, null);
     }
-
-    //protected override void OnAppearing()
-    //{
-    //    this.DashboardCompany = App.SelectedCompany;
-    //}
 }

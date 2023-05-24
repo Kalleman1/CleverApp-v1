@@ -7,6 +7,7 @@ namespace CleverAppen;
 public partial class App : Application
 {
 	public static Company SelectedCompany { get; set; }
+	public static List<Product> Products { get; set; }
 	public App()
 	{
 		InitializeComponent();

@@ -21,9 +21,21 @@ namespace CleverAppen.ViewModels
             }
         }
 
+        private List<Product> _products;
+        public List<Product> Products
+        {
+            get { return _products; }
+            set
+            {
+                _products = value;
+                OnPropertyChanged();
+            }
+        }
+
         public DashboardViewModel()
         {
-            SelectedCompany = App.SelectedCompany;
+            _selectedCompany = App.SelectedCompany;
+            _products = App.Products;
         }
     }
 }

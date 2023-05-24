@@ -4,40 +4,62 @@
              x:Class="CleverAppen.Views.DashboardPage"
              Title="Dashboard"
              BackgroundColor="#F7F8FA">
-    <VerticalStackLayout>
-        <!-- Expenses -->
-        <Frame Margin="10">
-            <VerticalStackLayout>
-                <Label HorizontalOptions="Center" Margin="5">Expenses</Label>
-                <HorizontalStackLayout>
-                    <VerticalStackLayout Padding="10">
-                        <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This month</Label>
-                        <Label>To be added.</Label>
-                    </VerticalStackLayout>
-                    <BoxView BackgroundColor="Grey" WidthRequest="1" VerticalOptions="FillAndExpand" Margin="65,0,0,0"></BoxView>
-                    <VerticalStackLayout Padding="10" HorizontalOptions="EndAndExpand" Margin="60,0,0,0">
-                        <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This year</Label>
-                        <Label>To be added.</Label>
-                    </VerticalStackLayout>
-                </HorizontalStackLayout>
-            </VerticalStackLayout>
-        </Frame>
-        <!-- Invoices -->
-        <Frame Margin="10">
-            <VerticalStackLayout>
-                <Label HorizontalOptions="Center" Margin="5">Invoices</Label>
-                <HorizontalStackLayout>
-                    <VerticalStackLayout Padding="10">
-                        <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This month</Label>
-                        <Label Text="{Binding SelectedCompany.ThisMonthInvoices}" HorizontalTextAlignment="Center"></Label>
-                    </VerticalStackLayout>
-                    <BoxView BackgroundColor="Grey" WidthRequest="1" VerticalOptions="FillAndExpand" Margin="83,0,0,0"></BoxView>
-                    <VerticalStackLayout Padding="10" HorizontalOptions="EndAndExpand" Margin="65,0,0,0">
-                        <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This year</Label>
-                        <Label Text="{Binding SelectedCompany.YearlyInvoices}" HorizontalTextAlignment="Center"></Label>
-                    </VerticalStackLayout>
-                </HorizontalStackLayout>
-            </VerticalStackLayout>
-        </Frame>
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+            <!-- Expenses -->
+            <Frame Margin="10">
+                <VerticalStackLayout>
+                    <Label HorizontalOptions="Center" Margin="5">Expenses</Label>
+                    <HorizontalStackLayout>
+                        <VerticalStackLayout Padding="10">
+                            <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This month</Label>
+                            <Label HorizontalTextAlignment="Center" Text="{Binding SelectedCompany.MonthlyExpenses,StringFormat='{0} kr.'}"></Label>
+                        </VerticalStackLayout>
+                        <BoxView BackgroundColor="Grey" WidthRequest="1" VerticalOptions="FillAndExpand" Margin="65,0,0,0"></BoxView>
+                        <VerticalStackLayout Padding="10" HorizontalOptions="EndAndExpand" Margin="60,0,0,0">
+                            <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This year</Label>
+                            <Label HorizontalTextAlignment="Center" Text="{Binding SelectedCompany.YearlyExpenses, StringFormat='{0} kr.'}"></Label>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+            <!-- Invoices -->
+            <Frame Margin="10">
+                <VerticalStackLayout>
+                    <Label HorizontalOptions="Center" Margin="5">Invoices</Label>
+                    <HorizontalStackLayout>
+                        <VerticalStackLayout Padding="10">
+                            <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This month</Label>
+                            <Label Text="{Binding SelectedCompany.ThisMonthInvoices}" HorizontalTextAlignment="Center"></Label>
+                        </VerticalStackLayout>
+                        <BoxView BackgroundColor="Grey" WidthRequest="1" VerticalOptions="FillAndExpand" Margin="83,0,0,0"></BoxView>
+                        <VerticalStackLayout Padding="10" HorizontalOptions="EndAndExpand" Margin="65,0,0,0">
+                            <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This year</Label>
+                            <Label Text="{Binding SelectedCompany.YearlyInvoices}" HorizontalTextAlignment="Center"></Label>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </VerticalStackLayout>
+            </Frame>
+            <!-- Top Products -->
+            <Frame Margin="10">
+                <VerticalStackLayout>
+                    <Label HorizontalOptions="Center" Margin="5">Top Products</Label>
+                    <CollectionView ItemsSource="{Binding Products}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Text="{Binding Name}"/>
+                                    <Label Grid.Column="1" Text="{Binding Total, StringFormat='{0} kr.'}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

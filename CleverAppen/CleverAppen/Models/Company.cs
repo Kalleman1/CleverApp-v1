@@ -12,5 +12,7 @@ namespace CleverAppen.Models
         public string Image { get; set; }
         public int ThisMonthInvoices { get; set; }
         public int YearlyInvoices { get; set; }
+        public int YearlyExpenses { get; set; }
+        public int MonthlyExpenses { get; set; }
     }
 }
