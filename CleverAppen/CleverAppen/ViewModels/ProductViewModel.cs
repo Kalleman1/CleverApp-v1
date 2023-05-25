@@ -1,5 +1,4 @@
 ﻿using CleverAppen.Models;
-using CleverAppen.Service;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,38 +10,20 @@ namespace CleverAppen.ViewModels
 {
     public class ProductViewModel : BaseViewModel
     {
-        public ObservableCollection<Product> Products { get; } = new();
-        public Command GetProductsCommand { get; }
-        ProductService productService;
-
-        public ProductViewModel(ProductService productService)
+        private List<Product> _vmProducts;
+        public List<Product> Products
         {
-            this.productService = productService;
-            GetProductsCommand = new Command(async () => await GetProductsAsync());
+            get { return _vmProducts; }
+            set
+            {
+                _vmProducts = value;
+                OnPropertyChanged();
+            }
         }
 
-        public async Task GetProductsAsync()
+        public ProductViewModel()
         {
-            try
-            {
-                IsBusy = true;
-
-                if (Products.Count > 0)
-                {
-                    Products.Clear();
-                }
-
-                var products = await Task.Run(() => productService.GetProducts());
-
-                foreach (var product in products)
-                {
-                    Products.Add(product);
-                }
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            _vmProducts = App.Products;
         }
     }
 }

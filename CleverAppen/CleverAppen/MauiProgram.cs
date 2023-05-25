@@ -1,10 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 using Microsoft.Maui.HotReload;
-using CleverAppen.Service;
 using CleverAppen.ViewModels;
 using CleverAppen.Views;
-using Syncfusion.Maui.Core.Hosting;
 using DevExpress.Maui;
 
 namespace CleverAppen;
@@ -27,7 +25,6 @@ public static class MauiProgram
         builder.Services.AddTransient<LoginPage>();
 
         builder.Services.AddTransient<ProductsPage>();
-        builder.Services.AddSingleton<ProductService>();
         builder.Services.AddTransient<ProductViewModel>();
 
         builder.Services.AddTransient<GroupsTab>();

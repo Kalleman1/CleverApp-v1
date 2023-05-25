@@ -19,10 +19,9 @@ namespace CleverAppen.ViewModels
     {
         public string webApiKey = "AIzaSyAlK9GyxNO9Zv7pUZskBNrV0laWWVS-N2g";
         public List<Company> Companies { get; set; }
-        private string userName;
-        private string userPassword;
-        private string userId;
         FirebaseClient firebaseClient = new FirebaseClient("https://cleverboi-ffba2-default-rtdb.europe-west1.firebasedatabase.app/");
+        public Command LoginBtn { get; }
+        public Command ChooseCompanyBtn { get; }
 
         private string _state = "IsNotLoggedIn";
         public string CurrentState
@@ -35,35 +34,36 @@ namespace CleverAppen.ViewModels
             }
         }
 
-        public Command LoginBtn { get; }
-        public Command ChooseCompanyBtn { get; }
 
+        private string _userId;
         public string UserId
         {
-            get => userId;
+            get => _userId;
             set
             {
-                userId = value;
+                _userId = value;
                 RaisePropertyChanged("UserId");
             }
         }
 
+        private string _userName;
         public string UserName
         {
-            get => userName;
+            get => _userName;
             set
             {
-                userName = value;
+                _userName = value;
                 RaisePropertyChanged("UserName");
             }
         }
 
+        private string _userPassword;
         public string UserPassword
         {
-            get => userPassword;
+            get => _userPassword;
             set
             {
-                userPassword = value;
+                _userPassword = value;
                 RaisePropertyChanged("UserPassword");
             }
         }
@@ -86,7 +86,7 @@ namespace CleverAppen.ViewModels
                 var serializedContent = JsonConvert.SerializeObject(content);
                 var userId = auth.User.LocalId;
                 Preferences.Set("FreshFirebaseToken", serializedContent);
-                this.UserId = userId;
+                this._userId = userId;
                 await GetCompaniesForUser(UserId);
                 CurrentState = "IsLoggedIn";
             }
@@ -102,6 +102,7 @@ namespace CleverAppen.ViewModels
         {
             App.SelectedCompany = (Company)selectedCompany;
             await GetProductsForCompany(UserId, App.SelectedCompany.Name);
+            await GetVendorsForCompany(UserId, App.SelectedCompany.Name);
 
             var appShell = new AppShell();
             Application.Current.MainPage = appShell;
@@ -140,6 +141,23 @@ namespace CleverAppen.ViewModels
             }
             App.Products = products;
             return products;
+        }
+
+        public async Task<List<Vendor>> GetVendorsForCompany (string userId, string companyName)
+        {
+            List<Vendor> vendors = new List<Vendor>();
+
+            var vendorsNode = firebaseClient.Child("Users").Child(userId).Child("Companies").Child(companyName).Child("Vendors");
+
+            var snapshot = await vendorsNode.OnceAsync<Vendor>();
+
+            foreach(var vendorSnapshot in snapshot)
+            {
+                Vendor vendor = vendorSnapshot.Object;
+                vendors.Add(vendor);
+            }
+            App.Vendors = vendors;
+            return vendors;
         }
     }
 }

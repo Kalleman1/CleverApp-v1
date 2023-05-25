@@ -1,4 +1,3 @@
-using CleverAppen.Service;
 using CleverAppen.ViewModels;
 
 namespace CleverAppen.Views;
@@ -6,14 +5,11 @@ namespace CleverAppen.Views;
 public partial class ProductsPage : ContentPage
 {
    
-	public ProductsPage(ProductViewModel productViewModel)
+	public ProductsPage()
 	{
-
         InitializeComponent();
-
-        BindingContext = productViewModel;
+        BindingContext = new ProductViewModel();
         NavigationPage.SetHasNavigationBar(this, false);
         NavigationPage.SetBackButtonTitle(this, null);
-        productViewModel.GetProductsCommand.Execute(this);
     }
 }

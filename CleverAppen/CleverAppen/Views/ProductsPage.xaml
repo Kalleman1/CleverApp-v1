@@ -2,73 +2,43 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CleverAppen.Views.ProductsPage"
-             xmlns:model="clr-namespace:CleverAppen.Models"
-             xmlns:viewmodel="clr-namespace:CleverAppen.ViewModels"
-             x:DataType="viewmodel:ProductViewModel"
-             xmlns:dxc="clr-namespace:DevExpress.Maui.Charts;assembly=DevExpress.Maui.Charts"
-             Title="Products">
-    <!--<Grid>
-            <ListView ItemsSource="{Binding Products}" SelectionMode="None">
-                <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="model:Product">
-                        <ViewCell >
-                            <Grid Padding="10"
-                                 >
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Label Text="{Binding Name}" 
-                                   Grid.Row="0" 
-                                   Grid.Column="0" />
-                                <Label Text="{Binding Description}" 
-                                   Grid.Row="0" 
-                                   Grid.Column="1" />
-                                <Label Text="{Binding Price}" 
-                                   Grid.Row="0" 
-                                   Grid.Column="2" />
-                                <Label Text="{Binding Amount}" 
-                                   Grid.Row="0" 
-                                   Grid.Column="3" />
-                                <Button Text="Edit" 
-                                    Grid.Row="0" 
-                                    Grid.Column="4"/>
-                            </Grid>
-                        </ViewCell>
+             Title="Products"
+             BackgroundColor="#F7F8FA">
+    <ScrollView Orientation="Horizontal">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <!-- Header Row -->
+            <StackLayout Orientation="Horizontal" Grid.Row="0" Padding="10">
+                <Label Text="Name" FontAttributes="Bold" WidthRequest="100" Grid.Column="0"/>
+                <Label Text="Price" FontAttributes="Bold" WidthRequest="100" Grid.Column="1"/>
+                <Label Text="Quantity" FontAttributes="Bold" WidthRequest="100" Grid.Column="2"/>
+                <Label Text="Total" FontAttributes="Bold" WidthRequest="100" Grid.Column="3"/>
+                <Label Text="Vendor" FontAttributes="Bold" WidthRequest="100" Grid.Column="4"/>
+            </StackLayout>
+            <!-- Product List -->
+            <CollectionView ItemsSource="{Binding Products}" Grid.Row="1">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="{Binding Name}" WidthRequest="100" Grid.Column="0"/>
+                            <Label Text="{Binding Price}" WidthRequest="100" Grid.Column="1"/>
+                            <Label Text="{Binding Quantity}" WidthRequest="100" Grid.Column="2"/>
+                            <Label Text="{Binding Total}" WidthRequest="100" Grid.Column="3"/>
+                            <Label Text="{Binding Vendor}" WidthRequest="100" Grid.Column="4"/>
+                        </StackLayout>
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        <Frame Margin="5,135,175,300">
-            <dxc:PieChartView HeightRequest="200">
-                <dxc:PieChartView.Legend>
-                    <dxc:Legend Orientation="LeftToRight"
-                                VerticalPosition="BottomOutside"/>
-                </dxc:PieChartView.Legend>
-                <dxc:PieChartView.Series>
-                    <dxc:DonutSeries>
-                        <dxc:DonutSeries.Label>
-                            <dxc:PieSeriesLabel Position="Inside"
-                                                TextPattern="{}{VP}%"/>
-                        </dxc:DonutSeries.Label>
-                        <dxc:DonutSeries.Data>
-                            <dxc:PieSeriesDataAdapter DataSource="{Binding Products}"
-                                                      LabelDataMember="Name"
-                                                      ValueDataMember="Amount"/>
-                        </dxc:DonutSeries.Data>
-                    </dxc:DonutSeries>
-                </dxc:PieChartView.Series>
-            </dxc:PieChartView>
-        </Frame>
-        <ActivityIndicator IsRunning="{Binding IsBusy}" 
-                           IsVisible="{Binding IsBusy}" 
-                           VerticalOptions="CenterAndExpand" 
-                           HorizontalOptions="CenterAndExpand"
-                           Color="#347DFE"
-                           />
-    </Grid>-->
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ScrollView>
 </ContentPage>

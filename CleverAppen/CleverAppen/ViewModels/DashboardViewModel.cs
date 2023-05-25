@@ -32,10 +32,22 @@ namespace CleverAppen.ViewModels
             }
         }
 
+        private List<Vendor> _vendors;
+        public List<Vendor> Vendors
+        {
+            get { return _vendors; }
+            set
+            {
+                _vendors = value;
+                OnPropertyChanged();
+            }
+        }
+
         public DashboardViewModel()
         {
             _selectedCompany = App.SelectedCompany;
-            _products = App.Products;
+            _products = App.Products.OrderByDescending(p => p.Total).ToList();
+            _vendors = App.Vendors;
         }
     }
 }

@@ -3,47 +3,58 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CleverAppen.Views.DashboardPage"
              Title="Dashboard"
-             BackgroundColor="#F7F8FA">
+             BackgroundColor="#F7F8FA"
+             xmlns:dxc="clr-namespace:DevExpress.Maui.Charts;assembly=DevExpress.Maui.Charts">
     <ScrollView>
         <VerticalStackLayout>
             <!-- Expenses -->
             <Frame Margin="10">
                 <VerticalStackLayout>
-                    <Label HorizontalOptions="Center" Margin="5">Expenses</Label>
-                    <HorizontalStackLayout>
-                        <VerticalStackLayout Padding="10">
+                    <Label HorizontalOptions="Center" Margin="5" FontAttributes="Bold">Expenses</Label>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <VerticalStackLayout Padding="10" Grid.Column="0">
                             <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This month</Label>
-                            <Label HorizontalTextAlignment="Center" Text="{Binding SelectedCompany.MonthlyExpenses,StringFormat='{0} kr.'}"></Label>
+                            <Label FontAttributes="Bold" HorizontalTextAlignment="Center" Text="{Binding SelectedCompany.MonthlyExpenses,StringFormat='{0} kr.'}"></Label>
                         </VerticalStackLayout>
-                        <BoxView BackgroundColor="Grey" WidthRequest="1" VerticalOptions="FillAndExpand" Margin="65,0,0,0"></BoxView>
-                        <VerticalStackLayout Padding="10" HorizontalOptions="EndAndExpand" Margin="60,0,0,0">
+                        <BoxView BackgroundColor="Grey" WidthRequest="1" VerticalOptions="FillAndExpand" Grid.Column="1"></BoxView>
+                        <VerticalStackLayout Padding="10" HorizontalOptions="EndAndExpand" Grid.Column="2">
                             <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This year</Label>
-                            <Label HorizontalTextAlignment="Center" Text="{Binding SelectedCompany.YearlyExpenses, StringFormat='{0} kr.'}"></Label>
+                            <Label FontAttributes="Bold" HorizontalTextAlignment="Center" Text="{Binding SelectedCompany.YearlyExpenses, StringFormat='{0} kr.'}"></Label>
                         </VerticalStackLayout>
-                    </HorizontalStackLayout>
+                    </Grid>
                 </VerticalStackLayout>
             </Frame>
             <!-- Invoices -->
             <Frame Margin="10">
                 <VerticalStackLayout>
-                    <Label HorizontalOptions="Center" Margin="5">Invoices</Label>
-                    <HorizontalStackLayout>
-                        <VerticalStackLayout Padding="10">
+                    <Label HorizontalOptions="Center" Margin="5" FontAttributes="Bold">Invoices</Label>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <VerticalStackLayout Padding="10" Grid.Column="0">
                             <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This month</Label>
-                            <Label Text="{Binding SelectedCompany.ThisMonthInvoices}" HorizontalTextAlignment="Center"></Label>
+                            <Label Text="{Binding SelectedCompany.ThisMonthInvoices}" HorizontalTextAlignment="Center" FontAttributes="Bold"></Label>
                         </VerticalStackLayout>
-                        <BoxView BackgroundColor="Grey" WidthRequest="1" VerticalOptions="FillAndExpand" Margin="83,0,0,0"></BoxView>
-                        <VerticalStackLayout Padding="10" HorizontalOptions="EndAndExpand" Margin="65,0,0,0">
+                        <BoxView BackgroundColor="Grey" WidthRequest="1" VerticalOptions="FillAndExpand" Grid.Column="1"></BoxView>
+                        <VerticalStackLayout Padding="10" HorizontalOptions="EndAndExpand" Grid.Column="2">
                             <Label TextColor="Grey" FontSize="12" HorizontalTextAlignment="Center">This year</Label>
-                            <Label Text="{Binding SelectedCompany.YearlyInvoices}" HorizontalTextAlignment="Center"></Label>
+                            <Label Text="{Binding SelectedCompany.YearlyInvoices}" HorizontalTextAlignment="Center" FontAttributes="Bold"></Label>
                         </VerticalStackLayout>
-                    </HorizontalStackLayout>
+                    </Grid>
                 </VerticalStackLayout>
             </Frame>
             <!-- Top Products -->
             <Frame Margin="10">
                 <VerticalStackLayout>
-                    <Label HorizontalOptions="Center" Margin="5">Top Products</Label>
+                    <Label HorizontalOptions="Center" Margin="5" FontAttributes="Bold">Top Products</Label>
                     <CollectionView ItemsSource="{Binding Products}">
                         <CollectionView.ItemTemplate>
                             <DataTemplate>
@@ -58,6 +69,32 @@
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
+                </VerticalStackLayout>
+            </Frame>
+            <!-- Top vendors -->
+            <Frame Margin="10">
+                <VerticalStackLayout>
+                    <Label HorizontalOptions="Center" Margin="5" FontAttributes="Bold">Top Vendors</Label>
+                    <dxc:PieChartView HeightRequest="300">
+                        <dxc:PieChartView.Legend>
+                            <dxc:Legend Orientation="TopToBottom"
+                                HorizontalPosition="RightOutside"
+                                        VerticalPosition="Center"/>
+                        </dxc:PieChartView.Legend>
+                        <dxc:PieChartView.Series>
+                            <dxc:DonutSeries>
+                                <dxc:DonutSeries.Label>
+                                    <dxc:PieSeriesLabel Position="Inside"
+                                                TextPattern="{}{VP}%"/>
+                                </dxc:DonutSeries.Label>
+                                <dxc:DonutSeries.Data>
+                                    <dxc:PieSeriesDataAdapter DataSource="{Binding Vendors}"
+                                                      LabelDataMember="Name"
+                                                      ValueDataMember="Total"/>
+                                </dxc:DonutSeries.Data>
+                            </dxc:DonutSeries>
+                        </dxc:PieChartView.Series>
+                    </dxc:PieChartView>
                 </VerticalStackLayout>
             </Frame>
         </VerticalStackLayout>
