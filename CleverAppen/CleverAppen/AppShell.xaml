@@ -6,7 +6,6 @@
     xmlns:views="clr-namespace:CleverAppen.Views;assembly=CleverAppen"
     BackgroundColor="#FFFFFF"
     xmlns:viewmodel="clr-namespace:CleverAppen.ViewModels"
-    xmlns:services="clr-namespace:CleverAppen.Service"
     FlyoutWidth="250"
     >
     <Shell.FlyoutHeader>
@@ -128,7 +127,7 @@
         </Tab>
         <Tab Title="Camera"
              Icon="camera.svg">
-            <ShellContent Route="DashboardPage" ContentTemplate="{DataTemplate views:DashboardPage}"/>
+            <ShellContent Route="DashboardPage" ContentTemplate="{DataTemplate views:TakePicture}"/>
         </Tab>
         <Tab Title="Settings"
              Icon="settings.svg">

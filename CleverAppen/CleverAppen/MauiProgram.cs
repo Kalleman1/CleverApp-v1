@@ -27,15 +27,9 @@ public static class MauiProgram
         builder.Services.AddTransient<ProductsPage>();
         builder.Services.AddTransient<ProductViewModel>();
 
-        builder.Services.AddTransient<GroupsTab>();
-        builder.Services.AddTransient<CustomProductsTab>();
         builder.Services.AddTransient<SaleItemsPage>();
 
-        builder.Services.AddTransient<AccountOptionsPage>();
-        builder.Services.AddTransient<AccountOptionsViewModel>();
         builder.Services.AddTransient<AccountSettingsPage>();
-        builder.Services.AddTransient<AccountSettingsViewModel>();
-        builder.Services.AddTransient<AddInvoicePage>();
 
 #if DEBUG
         builder.Logging.AddDebug();

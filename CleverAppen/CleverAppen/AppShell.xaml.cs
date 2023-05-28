@@ -16,11 +16,9 @@ public partial class AppShell : Shell
         Routing.RegisterRoute(nameof(ProductsPage), typeof(ProductsPage));
         Routing.RegisterRoute(nameof(VendorsPage), typeof(VendorsPage));
         Routing.RegisterRoute(nameof(InvoicePage), typeof(InvoicePage));
-        Routing.RegisterRoute(nameof(AccountOptionsPage), typeof(AccountOptionsPage));
         Routing.RegisterRoute(nameof(AccountSettingsPage), typeof(AccountSettingsPage));
-        Routing.RegisterRoute(nameof(AddInvoicePage), typeof(AddInvoicePage));
+        Routing.RegisterRoute(nameof(TakePicture), typeof(TakePicture));
 
-        int pageCount = Navigation.NavigationStack.Count;
         BindingContext= this;
 
 

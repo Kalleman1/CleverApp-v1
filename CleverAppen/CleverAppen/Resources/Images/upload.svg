@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="Icon_feather-upload" data-name="Icon feather-upload" transform="translate(0.5 -0.5)">
+    <path id="Path_3958" data-name="Path 3958" d="M0,0H24V24H0Z" transform="translate(-0.5 0.5)" fill="none"/>
+    <path id="Path_3932" data-name="Path 3932" d="M19.5,22.5v3.472a1.7,1.7,0,0,1-1.667,1.736H6.167A1.7,1.7,0,0,1,4.5,25.972V22.5" transform="translate(0 -8.208)" fill="none" stroke="#43425d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Path_3933" data-name="Path 3933" d="M18.556,8.84,14.528,4.5,10.5,8.84" transform="translate(-2.528)" fill="none" stroke="#43425d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Path_3934" data-name="Path 3934" d="M18,4.5V14.917" transform="translate(-6)" fill="none" stroke="#43425d" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+  </g>
+</svg>

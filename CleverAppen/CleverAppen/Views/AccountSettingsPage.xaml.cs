@@ -6,18 +6,9 @@ namespace CleverAppen.Views;
 public partial class AccountSettingsPage : ContentPage
 {
 
-	public AccountSettingsPage(AccountSettingsViewModel viewModel)
+	public AccountSettingsPage()
 	{
 		InitializeComponent();
 
-        BindingContext = viewModel;
-    }
-
-    private async void CancelButton_Clicked(object sender, EventArgs e)
-    {
-        if (Navigation.NavigationStack.Count > 0)
-        {
-            await Navigation.PopAsync();
-        }
     }
 }

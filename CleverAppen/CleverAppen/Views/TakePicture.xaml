@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CleverAppen.Views.TakePicture"
+             Title="Upload Invoice">
+    <VerticalStackLayout>
+        <Frame Margin="10">
+            <VerticalStackLayout>
+                <Label HorizontalTextAlignment="Center" Padding="10" Margin="10">On this page you can take a photo and upload it to Firebase Storage!</Label>
+                <Button x:Name="OpenCameraBtn" 
+                Text="Take picture and upload!" 
+                Command="{Binding TakePhotoBtn}"
+                BackgroundColor="#347DFE"
+                WidthRequest="230"
+                Margin="10"
+                ImageSource="camera.svg"></Button>
+            </VerticalStackLayout>
+        </Frame>
+        
+        <Frame Margin="10">
+            <VerticalStackLayout>
+                <Label HorizontalTextAlignment="Center" Padding="10" Margin="10">You can also choose a picture from your Camera roll and upload it!</Label>
+                <Button x:Name="OpenImageRoll" 
+                Text="Upload an image" 
+                Command="{Binding ChoosePhotoBtn}"
+                BackgroundColor="#347DFE"
+                WidthRequest="250"
+                Margin="10"
+                ImageSource="upload.svg"></Button>
+            </VerticalStackLayout>
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>

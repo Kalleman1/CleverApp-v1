@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CleverAppen.Views.AccountSettingsPage"
              xmlns:viewmodel="clr-namespace:CleverAppen.ViewModels"
-             x:DataType="viewmodel:AccountSettingsViewModel"
              Title="Account Settings">
     <VerticalStackLayout Padding="10">
         <Button Text="Account overview"
@@ -42,11 +41,5 @@
                 BorderColor="#43425D"
                 BorderWidth="1"
                 Margin="5"/>
-        <Button Text="Go back"
-                TextColor="White"
-                BackgroundColor="Red"
-                WidthRequest="375"
-                Margin="200"
-                Command="{Binding GobackCommand}"/>
     </VerticalStackLayout>
 </ContentPage>
